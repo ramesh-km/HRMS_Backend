@@ -18,14 +18,14 @@ import java.util.List;
 public class JobSeekerManager implements JobSeekerService {
 
     private JobSeekerDao jobSeekerDao;
-    private JobSeekerCheckService jobSeekerCheckService;
+    // private JobSeekerCheckService jobSeekerCheckService;
     private UserDao userDao;
     private EmailVerificationService emailVerification;
 
     @Autowired
-    public JobSeekerManager(JobSeekerDao jobSeekerDao, JobSeekerCheckService jobSeekerCheckService, UserDao userDao, EmailVerificationService emailVerification) {
+    public JobSeekerManager(JobSeekerDao jobSeekerDao, UserDao userDao, EmailVerificationService emailVerification) {
         this.jobSeekerDao = jobSeekerDao;
-        this.jobSeekerCheckService = jobSeekerCheckService;
+        // this.jobSeekerCheckService = jobSeekerCheckService;
         this.userDao = userDao;
         this.emailVerification = emailVerification;
     }
@@ -42,7 +42,7 @@ public class JobSeekerManager implements JobSeekerService {
         Result checkedResult = null;
 
         try {
-            checkedResult = jobSeekerCheckService.checkIfRealPerson(jobSeeker);
+            // checkedResult = jobSeekerCheckService.checkIfRealPerson(jobSeeker);
         } catch (Exception e) {
             e.printStackTrace();
         }
